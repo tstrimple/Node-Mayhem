@@ -22,7 +22,7 @@
   </data>
  </layer>
  <objectgroup name="objects" width="20" height="20">
-  <object name="mainPlayer" x="212" y="472" width="48" height="96">
+  <object name="player" x="212" y="472" width="48" height="96">
    <properties>
     <property name="image" value="gripe_run_right"/>
     <property name="spritewidth" value="64"/>

@@ -37,55 +37,55 @@
   </data>
  </layer>
  <objectgroup name="entities" width="45" height="25">
-  <object name="CrateEntity" x="445" y="303" width="34" height="33">
+  <object name="crate" x="445" y="303" width="34" height="33">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="488" y="304" width="34" height="33">
+  <object name="crate" x="488" y="304" width="34" height="33">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="453" y="526" width="34" height="33">
+  <object name="crate" x="453" y="526" width="34" height="33">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="452" y="581" width="34" height="33">
+  <object name="crate" x="452" y="581" width="34" height="33">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="516" y="707" width="34" height="33">
+  <object name="crate" x="516" y="707" width="34" height="33">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="1135" y="711" width="34" height="33">
+  <object name="crate" x="1135" y="711" width="34" height="33">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="1332" y="533" width="34" height="33">
+  <object name="crate" x="1332" y="533" width="34" height="33">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="1333" y="369" width="34" height="33">
+  <object name="crate" x="1333" y="369" width="34" height="33">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="1245" y="119" width="34" height="33">
+  <object name="crate" x="1245" y="119" width="34" height="33">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>

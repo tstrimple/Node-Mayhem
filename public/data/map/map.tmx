@@ -19,37 +19,37 @@
   </data>
  </layer>
  <objectgroup name="entities" width="40" height="20">
-  <object name="CrateEntity" x="192" y="192" width="51" height="50">
+  <object name="crate" x="192" y="192" width="51" height="50">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="576" y="288" width="48" height="48">
+  <object name="crate" x="576" y="288" width="48" height="48">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="192" y="336" width="48" height="48">
+  <object name="crate" x="192" y="336" width="48" height="48">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="771" y="288" width="48" height="48">
+  <object name="crate" x="771" y="288" width="48" height="48">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="1584" y="719" width="48" height="48">
+  <object name="crate" x="1584" y="719" width="48" height="48">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
    </properties>
   </object>
-  <object name="CrateEntity" x="1346" y="482" width="48" height="48">
+  <object name="crate" x="1346" y="482" width="48" height="48">
    <properties>
     <property name="image" value="crate"/>
     <property name="spritewidth" value="48"/>
