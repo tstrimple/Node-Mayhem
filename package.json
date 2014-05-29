@@ -28,7 +28,14 @@
     "express": "^4.3.0",
     "express-session": "^1.2.0",
     "socket.io": "^1.0.2",
-    "socket.io-client": "^1.0.2"
+    "socket.io-client": "^1.0.2",
+    "browserify": "^4.1.6",
+    "gulp": "^3.6.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglifyjs": "^0.3.0",
+    "vinyl-source-stream": "^0.1.1",
+    "watchify": "^0.10.1"
   },
   "browser": {
     "melonjs": "./lib/melonJS-1.1.0.js",
@@ -51,13 +58,4 @@
     "url": "https://github.com/felixrieseberg/Node-Mayhem/issues"
   },
   "private": true,
-  "devDependencies": {
-    "browserify": "^4.1.6",
-    "gulp": "^3.6.2",
-    "gulp-rename": "^1.2.0",
-    "gulp-streamify": "0.0.5",
-    "gulp-uglifyjs": "^0.3.0",
-    "vinyl-source-stream": "^0.1.1",
-    "watchify": "^0.10.1"
-  }
 }
