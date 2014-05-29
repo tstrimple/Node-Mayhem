@@ -1,6 +1,6 @@
 var game = require('./game');
 var input = require('./input');
-var io = require('socket.io-browserify');
+var io = require('socket.io-client');
 var socket = io.connect();
 
 window.addEventListener('load', function() {

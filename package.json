@@ -1,11 +1,11 @@
 {
-  "name": "node-nayhem",
+  "name": "node-mayhem",
   "version": "0.1.0",
   "description": "A multiplayer browser game - more info at https://github.com/felixrieseberg/Node-Mayhem",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "prepublish": "node bin/bundle.js"
+    "prepublish": "gulp build"
   },
   "contributors": [
     {
@@ -22,15 +22,26 @@
     }
   ],
   "dependencies": {
-    "browserify": "^4.1.6",
     "cookie": "^0.1.2",
     "cookie-parser": "^1.1.0",
+    "debug": "^0.8.1",
     "express": "^4.3.0",
     "express-session": "^1.2.0",
-    "socket.io": "^0.9.16",
-    "socket.io-browserify": "^0.9.6",
-    "uglify-js": "^2.4.13",
-    "uglifyjs": "^2.3.6"
+    "socket.io": "^1.0.2",
+    "socket.io-client": "^1.0.2"
+  },
+  "browser": {
+    "melonjs": "./lib/melonJS-1.1.0.js",
+    "pointerevents": "./lib/pointerevents.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "melonjs": "me",
+    "pointerevents": ""
   },
   "repository": {
     "type": "git",
@@ -39,5 +50,14 @@
   "bugs": {
     "url": "https://github.com/felixrieseberg/Node-Mayhem/issues"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "browserify": "^4.1.6",
+    "gulp": "^3.6.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglifyjs": "^0.3.0",
+    "vinyl-source-stream": "^0.1.1",
+    "watchify": "^0.10.1"
+  }
 }
