@@ -22,18 +22,19 @@
     }
   ],
   "dependencies": {
+    "browserify": "^4.1.6",
+    "browserify-shim": "^3.5.0",
     "cookie": "^0.1.2",
     "cookie-parser": "^1.1.0",
     "debug": "^0.8.1",
     "express": "^4.3.0",
     "express-session": "^1.2.0",
-    "socket.io": "^1.0.2",
-    "socket.io-client": "^1.0.2",
-    "browserify": "^4.1.6",
     "gulp": "^3.6.2",
     "gulp-rename": "^1.2.0",
     "gulp-streamify": "0.0.5",
     "gulp-uglifyjs": "^0.3.0",
+    "socket.io": "^1.0.2",
+    "socket.io-client": "^1.0.2",
     "vinyl-source-stream": "^0.1.1",
     "watchify": "^0.10.1"
   },
