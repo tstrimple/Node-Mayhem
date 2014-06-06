@@ -1,12 +1,10 @@
 var me = require('melonjs');
+var debug = require('debug');
 var audio = require('./audio');
 
 var game = {
   players: {},
-  gameReady: function() {
-    console.log('default game ready');
-  },
-
+  localPlayer: {},
   onload: function() {
     me.sys.pauseOnBlur = false;
     if (!me.video.init('screen', 1136, 640, true, 'auto', true)) {
@@ -28,7 +26,6 @@ var game = {
     me.pool.register('bullet', require('./entities/bullet'), true);
     me.pool.register('medpack', require('./entities/medpack'), true);
     me.pool.register('crate', require('./entities/crate'));
-    this.gameReady();
     me.state.change(me.state.PLAY);
   },
 
@@ -65,7 +62,6 @@ var game = {
 
   removeEnemy: function(data) {
     var enemy = this.players[data.id];
-    console.log('removing child');
     me.game.world.removeChild(enemy);
     delete this.players[data.id];
   },
@@ -85,7 +81,6 @@ var game = {
 
     this.socket.emit('resetPlayer');
     this.mainPlayer = {};
-    console.log('removing child');
     me.game.world.removeChild(this.players[id]);
     delete this.players[id];
   },

@@ -8,7 +8,7 @@ var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
 
 gulp.task('build', function() {
-  var bundleStream = browserify('./src/app.js', { debug: true }).bundle();
+  var bundleStream = browserify('./client/index.js', { debug: true }).bundle();
 
   bundleStream
     .pipe(source('app.js'))
@@ -19,7 +19,7 @@ gulp.task('build', function() {
 });
 
 gulp.task('watch', function() {
-  var bundler = watchify('./src/app.js');
+  var bundler = watchify('./client/index.js');
   bundler.on('update', rebundle);
   function rebundle () {
     debug('updating bundle', arguments);

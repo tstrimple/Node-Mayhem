@@ -1,7 +1,9 @@
 var me = require('melonjs');
+var util = require('util');
+var EventEmitter = require('events').EventEmitter;
 
 function Joystick(touchId) {
-  var id = touchId;
+  this.id = touchId;
 
   var minDistance = 10;
   var maxDistance = 50;
@@ -10,31 +12,31 @@ function Joystick(touchId) {
   var pos = new me.Vector2d();
   var val = new me.Vector2d();
 
-  this.start = function(x, y) {
+  this.start = function(x, y, callback) {
     zero.x = pos.x = x;
     zero.y = pos.y = y;
     this.update();
-    me.event.publish(id + '-pushed', [val]);
+    callback(this.id + '-start');
   };
 
-  this.move = function(x, y) {
+  this.move = function(x, y, callback) {
     pos.x = x;
     pos.y = y;
 
     var magnitude = zero.distance(pos);
     if (magnitude > minDistance) {
-      this.update();
+      this.update(callback);
     }
   };
 
-  this.end = function() {
+  this.end = function(callback) {
     zero.x = pos.x = 0;
     zero.y = pos.y = 0;
     this.update();
-    me.event.publish(id + '-released', [val]);
+    callback(this.id + '-end');
   };
 
-  this.update = function() {
+  this.update = function(callback) {
     var magnitude = zero.distance(pos);
 
     if (magnitude > maxDistance) {
@@ -49,29 +51,39 @@ function Joystick(touchId) {
     val.normalize();
     val.scale(power);
 
-    me.event.publish(id, [val]);
+    if(typeof callback === 'function') {
+      callback(this.id, val.x, val.y);
+    }
   };
 }
 
 function TouchInput() {
-  var leftStick = new Joystick('left-stick');
-  var rightStick = new Joystick('right-stick');
+  var leftStick = new Joystick('move');
+  var rightStick = new Joystick('shoot');
   var stickMap = {};
   var windowWidth = window.innerWidth;
 
   this.touchStart = function(e) {
-    var left = e.x < (windowWidth / 2);
+    var left = e.gameX < (windowWidth / 2);
     stickMap[e.pointerId] = left ? leftStick : rightStick;
-    stickMap[e.pointerId].start(e.x, e.y);
+    stickMap[e.pointerId].start(e.gameX, e.gameY, function(id) {
+      this.emit(id);
+    }.bind(this));
   };
 
   this.touchEnd = function(e) {
-    stickMap[e.pointerId].end();
+    stickMap[e.pointerId].end(function(id) {
+      this.emit(id);
+    }.bind(this));
   };
 
   this.touchMove = function(e) {
-    stickMap[e.pointerId].move(e.x, e.y);
+    stickMap[e.pointerId].move(e.gameX, e.gameY, function(id, x, y) {
+      this.emit(id, x, y);
+    }.bind(this));
   };
 }
+
+util.inherits(TouchInput, EventEmitter);
 
 exports = module.exports = new TouchInput();

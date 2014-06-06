@@ -33,28 +33,9 @@ exports = module.exports = me.ObjectEntity.extend({
     var accel = this.accel;
     this.accelForce = 4.5;
 
-    me.event.subscribe('left-stick', function(vel) {
-      accel.x = vel.x;
-      accel.y = vel.y;
-    });
-
-    me.event.subscribe('right-stick-released', function() {
-      this.isFiring = false;
-    }.bind(this));
-
-    me.event.subscribe('right-stick', function(vel) {
-      vel.normalize();
-      this.setFacing(vel);
-
-      if (vel.length() > 0) {
-        this.isFiring = true;
-        this.target.x = vel.x;
-        this.target.y = vel.y;
-      }
-    }.bind(this));
-
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
   },
+
   setFacing: function(vel) {
     if (vel.x < 0 && Math.abs(vel.x) > Math.abs(vel.y)) {
       this.animationToUseThisFrame = 'run-left';
@@ -72,14 +53,13 @@ exports = module.exports = me.ObjectEntity.extend({
       this.animationToUseThisFrame = 'run-down';
     }
   },
+
   update: function(dt) {
-    var delta = dt / 20;
-    this.vel.x = this.accel.x;
-    this.vel.y = this.accel.y;
-    this.vel.scale(this.accelForce * delta);
+    this.setFacing(this.serverData.velocity);
+    this.pos.x = this.serverData.position.x;
+    this.pos.y = this.serverData.position.y;
 
     if (!this.renderable.isCurrentAnimation(this.animationToUseThisFrame)) {
-      this.lastAnimationUsed = this.animationToUseThisFrame;
       this.renderable.setCurrentAnimation(this.animationToUseThisFrame);
     }
 
@@ -93,7 +73,6 @@ exports = module.exports = me.ObjectEntity.extend({
       }.bind(this), this.weaponCoolDownTime);
     }
 
-    this.updateMovement();
     return true;
   }
 });

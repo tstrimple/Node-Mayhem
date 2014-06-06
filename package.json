@@ -2,9 +2,9 @@
   "name": "node-mayhem",
   "version": "0.1.0",
   "description": "A multiplayer browser game - more info at https://github.com/felixrieseberg/Node-Mayhem",
-  "main": "server.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server",
     "prepublish": "gulp build"
   },
   "contributors": [
@@ -22,17 +22,21 @@
     }
   ],
   "dependencies": {
+    "async": "^0.9.0",
     "browserify": "^4.1.6",
     "browserify-shim": "^3.5.0",
     "cookie": "^0.1.2",
+    "cookie-cutter": "^0.1.1",
     "cookie-parser": "^1.1.0",
     "debug": "^0.8.1",
     "express": "^4.3.0",
     "express-session": "^1.2.0",
+    "guid": "0.0.12",
     "gulp": "^3.6.2",
     "gulp-rename": "^1.2.0",
     "gulp-streamify": "0.0.5",
     "gulp-uglifyjs": "^0.3.0",
+    "shared-cookies": "0.0.4",
     "socket.io": "^1.0.2",
     "socket.io-client": "^1.0.2",
     "vinyl-source-stream": "^0.1.1",
@@ -48,8 +52,7 @@
     ]
   },
   "browserify-shim": {
-    "melonjs": "me",
-    "pointerevents": ""
+    "melonjs": "me"
   },
   "repository": {
     "type": "git",
